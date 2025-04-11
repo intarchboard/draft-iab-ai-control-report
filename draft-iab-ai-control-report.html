@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>IAB AI-CONTROL Workshop Report</title>
+<meta content="Mark Nottingham" name="author">
+<meta content="Suresh Krishnan" name="author">
+<meta content="
+       The AI-CONTROL Workshop was convened by the Internet Architecture Board (IAB) in September 2024. This report summarizes its significant points of discussion and identifies topics that may warrant further consideration and work. 
+    " name="description">
+<meta content="xml2rfc 3.28.1" name="generator">
+<meta content="policy" name="keyword">
+<meta content="Artificial Intelligence" name="keyword">
+<meta content="Robots Exclusion Protocol" name="keyword">
+<meta content="web crawler" name="keyword">
+<meta content="robots.txt" name="keyword">
+<meta content="draft-iab-ai-control-report-latest" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.28.1
+    Python 3.12.9
+    ConfigArgParse 1.7
+    google-i18n-address 3.1.1
+    intervaltree 3.1.0
+    Jinja2 3.1.6
+    lxml 5.3.0
+    platformdirs 4.3.7
+    pycountry 24.6.1
+    PyYAML 6.0.2
+    requests 2.32.3
+    setuptools 70.3.0
+    wcwidth 0.2.13
+-->
+<link href="draft-iab-ai-control-report.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+  --background-color: #fff;
+  --text-color: #222;
+  --title-color: #191919;
+  --link-color: #2a6496;
+  --highlight-color: #f9f9f9;
+  --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
+  --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
+  scrollbar-color: #bbb #eee;
+}
+body {
+  max-width: 600px;
+  margin: 75px auto;
+  padding: 0 5px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font: 16px/22px "Lora", serif;
+  scroll-behavior: smooth;
+}
+
+.ears {
+  display: none;
+}
+
+/* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 680;
+  margin: 0.8em 0 0.3em;
+  font-size-adjust: 0.5;
+  color: var(--title-color);
+}
+h1#title {
+  font-size: 32px;
+  line-height: 40px;
+  clear: both;
+}
+h1#title, h1#rfcnum {
+  margin: 1.5em 0 0.2em;
+}
+h1#rfcnum + h1#title {
+  margin: 0.2em 0;
+}
+
+h1, h2, h3 {
+  font-size: 22px;
+  line-height: 27px;
+}
+h4, h5, h6 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* general structure */
+.author {
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+#abstract+p {
+  font-size: 18px;
+  line-height: 24px;
+}
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0.5em 0;
+  text-align: left;
+}
+div {
+  margin: 0;
+}
+.alignRight.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignRight.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignRight {
+  margin: 1em 0;
+}
+.alignRight > *:first-child {
+  border: none;
+  margin: 0;
+  float: right;
+  clear: both;
+}
+.alignRight > *:nth-child(2) {
+  clear: both;
+  display: block;
+  border: none;
+}
+svg {
+  display: block;
+}
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
+}
+.alignCenter.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignCenter.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignCenter {
+  margin: 1em 0;
+}
+.alignCenter > *:first-child {
+  border: none;
+  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+     support flexbox yet.
+  */
+  display: table;
+  margin: 0 auto;
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 0.5em 2em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+  & li {
+    margin-top: 0.5em;
+  }
+}
+:is(ul, ol).compact, .ulCompact, .olCompact {
+  margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
+}
+
+/* definition lists */
+dl {
+  clear: left;
+  --indent: 3ch;
+  /* --indent: attr(indent ch); not supported in any browser, but we can dream */
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+    }
+  }
+  &.olPercent > dt {
+    float: none;
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+}
+dl:not(.dlNewline) > dt {
+  float: left;
+  margin-right: 2ch;
+  min-width: 8ch;
+}
+dl > dd {
+  margin-bottom: .8em;
+  margin-left: var(--indent) !important; /* stupid element overrides */
+  min-height: 2ex;
+}
+:is(dl.compact, .dlCompact) > dd {
+  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
+}
+:is(dd, span).break {
+  display: none;
+}
+
+/* links */
+a, a[href].selfRef:hover {
+  text-decoration: none;
+}
+a[href] {
+  color: var(--link-color);
+}
+a[href].selfRef, .iref + a[href].internal {
+  color: var(--text-color);
+}
+a[href]:hover {
+  text-decoration: underline;
+}
+a[href].selfRef:hover {
+  background-color: var(--highlight-color);
+}
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
+  white-space: nowrap;
+}
+
+/* Figures */
+tt, code, pre {
+  background-color: var(--highlight-color);
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
+  line-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
+}
+pre {
+  border: 1px solid var(--line-color);
+  font-size: 13.5px;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  margin: 5px;
+  padding: 5px;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0.5em 0;
+  padding: 0;
+}
+figure blockquote {
+  margin: 0.8em 0.4em 0.4em;
+}
+figcaption, caption {
+  font-style: italic;
+  margin: 0.5em 1.5em;
+  text-align: left;
+  caption-side: bottom;
+}
+@media screen {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) p {
+    margin: -2px 0;
+    max-height: 0;
+    transition: max-height 2s ease, margin 0.5s ease 0.5s;
+    overflow: hidden;
+  }
+  :is(#status-of-memo, #copyright):hover p,
+  :is(#status-of-memo, #copyright) h2:target ~ p {
+    margin: 0.5em 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+  pre, svg {
+    display: inline-block;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
+  }
+  pre {
+    max-width: 100%;
+    width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
+  }
+  figure pre {
+    display: block;
+    width: calc(100% - 25px);
+  }
+  :is(pre, svg) + .pilcrow {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding-bottom: 8px;
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 0 2em;
+  font-style: italic;
+}
+blockquote {
+  margin: 1em 0;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+}
+table.right {
+  margin-left: auto;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.left {
+  margin-right: auto;
+}
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
+thead, tbody {
+  border: 1px solid var(--line-color);
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px 10px;
+}
+th {
+  background-color: var(--line-color);
+}
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
+  background-color: var(--background-color);
+}
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
+  background-color: var(--highlight-color);
+}
+table caption {
+  margin: 0;
+  padding: 3px 0 3px 1em;
+}
+table p {
+  margin: 0;
+}
+
+/* pilcrow */
+a.pilcrow {
+  margin-left: 3px;
+  opacity: 0.2;
+  user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
+}
+@media not print {
+  :hover > a.pilcrow {
+    opacity: 1;
+  }
+  a.pilcrow[href]:hover {
+    color: var(--pilcrow-strong);
+    background-color: transparent;
+  }
+}
+@media print {
+  a.pilcrow {
+    display: none;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid var(--line-color);
+}
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+.role {
+  font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: var(--small-font-size);
+  line-height: 18px;
+  --identifier-width: 15ch;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #999;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+}
+.docInfo .prepared {
+  float: right;
+}
+
+/* table of contents */
+#toc {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
+  }
+}
+
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+#rfc\.index\.index + ul {
+  margin-left: 0;
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
+}
+
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+@media (min-width: 500px) {
+  #authors-addresses > section {
+    column-count: 2;
+    column-gap: 20px;
+  }
+  #authors-addresses > section > h2 {
+    column-span: all;
+  }
+  /* hack for break-inside: avoid-column */
+  #authors-addresses address {
+    display: inline-block;
+    break-inside: avoid-column;
+  }
+}
+
+/* Comments */
+.rfcEditorRemove p:first-of-type {
+  font-style: italic;
+}
+.cref {
+  background-color: rgba(249, 232, 105, 0.3);
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+    & > ul { margin-bottom: 2em; }
+    & ul {
+      margin: 0 0 0 4px;
+      & :is(p, li) {
+        margin: 2px 0;
+      }
+    }
+  }
+  #toc a.toplink {
+    float: right;
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
+@media screen and (max-width: 929px) {
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 1px 0 0 0;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    opacity: 0.6;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 2px 0 2px 6px;
+    padding-right: 1em;
+    font-size: 18px;
+    line-height: 24px;
+    min-width: 190px;
+    text-align: right;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+    &::before { /* css hamburger */
+      float: right;
+      position: relative;
+      width: 1em;
+      height: 1px;
+      left: -164px;
+      margin: 8px 0 0 0;
+      background: white none repeat scroll 0 0;
+      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+      content: "";
+    }
+  }
+  #toc nav {
+    display: none;
+    background-color: var(--background-color);
+    padding: 0.5em 1em 1em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    height: calc(100vh - 48px);
+    border-left: 1px solid #ddd;
+  }
+  #toc.active {
+    opacity: 1;
+    & nav { display: block; }
+  }
+  /* Make the collapsed ToC header render white on gray also when it's a link */
+  #toc h2 a,
+  #toc h2 a:is(:link, :focus, :hover),
+  #toc a.toplink,
+  #toc a.toplink:hover {
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+  }
+  #toc a.toplink {
+    margin: 2px 0.5em 0;
+  }
+}
+
+/* TOC layout for wide screens */
+@media screen and (min-width: 930px) {
+  body {
+    padding-right: 360px;
+    padding-right: calc(min(180px + 20%, 500px));
+  }
+  #toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 480px);
+    width: 312px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 0.25em 1em 1em 0;
+  }
+  #toc nav {
+    display: block;
+    height: calc(90vh - 84px);
+    bottom: 0;
+    padding: 0.5em 0 2em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+  #toc a.toplink {
+    margin: 8px 0.5em 0;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc, #n-introduction {
+    page-break-before: always;
+  }
+  #toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  figure, pre, .vcard {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  :is(h2, h3, h4, h5, h6)+*, dd {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+}
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg :is([stroke="black"], [stroke^="#000"]) {
+  stroke: var(--text-color);
+}
+svg :is([stroke="white"], [stroke^="#fff"]) {
+  stroke: var(--background-color);
+}
+svg :is([fill="black"], [fill^="#000"], :not([fill])) {
+  fill: var(--text-color);
+}
+svg :is([fill="white"], [fill^="#fff"]) {
+  fill: var(--background-color);
+}
+</style>
+
+</head>
+<body class="xml2rfc">
+<table class="ears">
+<thead><tr>
+<td class="left">Internet-Draft</td>
+<td class="center">IAB AI-CONTROL Workshop Report</td>
+<td class="right">April 2025</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Nottingham &amp; Krishnan</td>
+<td class="center">Expires 13 October 2025</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">Network Working Group</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">draft-iab-ai-control-report-latest</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2025-04-11" class="published">11 April 2025</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Informational</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2025-10-13">13 October 2025</time></dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">M. Nottingham</div>
+<div class="org">Cloudflare</div>
+</div>
+<div class="author">
+      <div class="author-name">S. Krishnan</div>
+<div class="org">Cisco</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">IAB AI-CONTROL Workshop Report</h1>
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<p id="section-abstract-1">The AI-CONTROL Workshop was convened by the Internet Architecture Board (IAB) in September 2024. This report summarizes its significant points of discussion and identifies topics that may warrant further consideration and work.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+</section>
+<section class="note rfcEditorRemove" id="section-note.1">
+      <h2 id="name-discussion-venues">
+<a href="#name-discussion-venues" class="section-name selfRef">Discussion Venues</a>
+      </h2>
+<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">Source for this draft and an issue tracker can be found at
+    <span><a href="https://github.com/intarchboard/draft-iab-ai-control-report">https://github.com/intarchboard/draft-iab-ai-control-report</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+</section>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 13 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2025 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-chatham-house-rule" class="internal xref">Chatham House Rule</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-views-expressed-in-this-rep" class="internal xref">Views Expressed in this Report</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-overview-of-the-ai-crawling" class="internal xref">Overview of the AI Crawling Landscape</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
+                <p id="section-toc.1-1.2.2.1.1"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-crawl-time-vs-inference-tim" class="internal xref">Crawl Time vs. Inference Time</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1.2.1">
+                    <p id="section-toc.1-1.2.2.1.2.1.1"><a href="#section-2.1.1" class="auto internal xref">2.1.1</a>.  <a href="#name-multiple-uses-for-crawl-dat" class="internal xref">Multiple Uses for Crawl Data</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1.2.2">
+                    <p id="section-toc.1-1.2.2.1.2.2.1"><a href="#section-2.1.2" class="auto internal xref">2.1.2</a>.  <a href="#name-application-of-preferences" class="internal xref">Application of Preferences</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-trust" class="internal xref">Trust</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
+                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="auto internal xref">2.3</a>.  <a href="#name-attachment" class="internal xref">Attachment</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.1">
+                    <p id="section-toc.1-1.2.2.3.2.1.1"><a href="#section-2.3.1" class="auto internal xref">2.3.1</a>.  <a href="#name-robotstxt-and-similar" class="internal xref">robots.txt (and similar)</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.2">
+                    <p id="section-toc.1-1.2.2.3.2.2.1"><a href="#section-2.3.2" class="auto internal xref">2.3.2</a>.  <a href="#name-embedding" class="internal xref">Embedding</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.3">
+                    <p id="section-toc.1-1.2.2.3.2.3.1"><a href="#section-2.3.3" class="auto internal xref">2.3.3</a>.  <a href="#name-registries" class="internal xref">Registries</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4">
+                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="auto internal xref">2.4</a>.  <a href="#name-vocabulary" class="internal xref">Vocabulary</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-conclusions" class="internal xref">Conclusions</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-potential-standards-work" class="internal xref">Potential Standards Work</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1.2.1">
+                    <p id="section-toc.1-1.3.2.1.2.1.1"><a href="#section-3.1.1" class="auto internal xref">3.1.1</a>.  <a href="#name-out-of-initial-scope" class="internal xref">Out of Initial Scope</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-about-the-workshop" class="internal xref">About the Workshop</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-agenda" class="internal xref">Agenda</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1.2.1">
+                    <p id="section-toc.1-1.6.2.1.2.1.1"><a href="#appendix-A.1.1" class="auto internal xref">A.1.1</a>.  <a href="#name-thursday-2024-09-19" class="internal xref">Thursday 2024-09-19</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1.2.2">
+                    <p id="section-toc.1-1.6.2.1.2.2.1"><a href="#appendix-A.1.2" class="auto internal xref">A.1.2</a>.  <a href="#name-friday-2024-09-20" class="internal xref">Friday 2024-09-20</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-attendees" class="internal xref">Attendees</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-iab-members-at-the-time-of-" class="internal xref">IAB Members at the Time of Approval</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<p id="section-1-1">The Internet Architecture Board (IAB) holds occasional workshops designed to consider long-term issues and strategies for the Internet, and to suggest future directions for the Internet architecture. This long-term planning function of the IAB is complementary to the ongoing engineering efforts performed by working groups of the Internet Engineering Task Force (IETF).<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">The Internet is one of the major sources of data used to train large language models (LLMs, or more generally "AI"). Because this use was not envisioned by most publishers of information on the Internet, a means of expressing the owners' preferences regarding AI crawling has emerged, sometimes backed by law (e.g., in the European Union's AI Act <span>[<a href="#AI-ACT" class="cite xref">AI-ACT</a>]</span>).<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">The IAB convened the AI-CONTROL Workshop to "explore practical opt-out mechanisms for AI and build an understanding of use cases, requirements, and other considerations in this space." <span>[<a href="#CFP" class="cite xref">CFP</a>]</span> In particular, the emerging practice of using the Robots Exclusion Protocol <span>[<a href="#RFC9309" class="cite xref">RFC9309</a>]</span> -- also known as "robots.txt" -- has been uncoordinated, and may or may not be a suitable way to control AI crawlers. However, discussion was not limited to consideration of robots.txt, and approaches other than opt-out were considered.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">To ensure many viewpoints were represented, the program committee invited a broad selection of technical experts, AI vendors, content publishers, civil society advocates, and policymakers.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<div id="chatham-house-rule">
+<section id="section-1.1">
+        <h3 id="name-chatham-house-rule">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-chatham-house-rule" class="section-name selfRef">Chatham House Rule</a>
+        </h3>
+<p id="section-1.1-1">Participants agreed to conduct the workshop under the Chatham House Rule <span>[<a href="#CHATHAM-HOUSE" class="cite xref">CHATHAM-HOUSE</a>]</span>, so this report does not attribute statements to individuals or organizations without express permission. Most submissions to the workshop were public and thus attributable; they are used here to provide substance and context.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2"><a href="#attendees" class="auto internal xref">Appendix A.2</a> lists the workshop participants, unless they requested that this information be witheld.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="views-expressed-in-this-report">
+<section id="section-1.2">
+        <h3 id="name-views-expressed-in-this-rep">
+<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-views-expressed-in-this-rep" class="section-name selfRef">Views Expressed in this Report</a>
+        </h3>
+<p id="section-1.2-1">This document is a report on the proceedings of the workshop. The views and positions documented in this report are expressed during the workshop by participants and do not necessarily reflect IAB's views and positions.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<p id="section-1.2-2">Furthermore, the content of the report comes from presentations given by workshop participants and notes taken during the discussions, without interpretation or validation. Thus, the content of this report follows the flow and dialogue of the workshop but does not attempt to capture a consensus.<a href="#section-1.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="overview-of-the-ai-crawling-landscape">
+<section id="section-2">
+      <h2 id="name-overview-of-the-ai-crawling">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-overview-of-the-ai-crawling" class="section-name selfRef">Overview of the AI Crawling Landscape</a>
+      </h2>
+<p id="section-2-1">The workshop began by surveying the state of AI control.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">Currently, Internet publishers express their preferences for how their content is treated for purposes of AI training using a variety of mechanisms, including declarative ones, such as terms of service and robots.txt <span>[<a href="#RFC9309" class="cite xref">RFC9309</a>]</span>, and active ones, such as the use of paywalls and selective blocking of crawlers (e.g., by IP address, User-Agent).<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3">There was disagreement about the implications of AI opt-out overall. Research indicates that the use of such controls is becoming more prevalent, reducing the availability of data for AI training. Some of the participants expressed concern about the implications of this -- although at least one AI vendor seemed less concerned by this, indicating that "there are plenty of tokens available" for training, even if many opt out. Others expressed a need to opt out of AI training because of how they perceive its effects on their control over content, seeing AI as usurping their relationships with customers and a potential threat to whole industries.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-4">However, there was quick agreement that both viewpoints were harmed by the current state of AI opt-out -- a situation where "no one is better off" (in the words of one participant).<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-5">Much of that dysfunction was attributed to the lack of coordination and standards for AI opt-out. Currently, content publishers need to consult with each AI vendor to understand how to opt out of training their products, as there is significant variance in each vendor's behaviour. Furthermore, publishers need to continually monitor both for new vendors, and for changes to the policies of the vendors they are aware of.<a href="#section-2-5" class="pilcrow">¶</a></p>
+<p id="section-2-6">Underlying those immediate issues, however, are significant constraints that could be attributed to uncertainties in the legal context, the nature of AI, and the implications of needing to opt out of crawling for it.<a href="#section-2-6" class="pilcrow">¶</a></p>
+<div id="crawl-time-vs-inference-time">
+<section id="section-2.1">
+        <h3 id="name-crawl-time-vs-inference-tim">
+<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-crawl-time-vs-inference-tim" class="section-name selfRef">Crawl Time vs. Inference Time</a>
+        </h3>
+<p id="section-2.1-1">Perhaps most significant is the "crawl time vs. inference time" problem. Statements of preference are apparent at crawl time, bound to content either by location (e.g., robots.txt) or embedded inside the content itself as metadata. However, the target of those directives is often disassociated from the crawler, either because the crawl data is not only used for training AI models, or because the preferences are applicable at inference time.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<div id="multiple-uses-for-crawl-data">
+<section id="section-2.1.1">
+          <h4 id="name-multiple-uses-for-crawl-dat">
+<a href="#section-2.1.1" class="section-number selfRef">2.1.1. </a><a href="#name-multiple-uses-for-crawl-dat" class="section-name selfRef">Multiple Uses for Crawl Data</a>
+          </h4>
+<p id="section-2.1.1-1">A crawl's data might have multiple uses because the vendor also has another product that uses it (e.g., a search engine), or because the crawl is performed by a party other than the AI vendor. Both are very common patterns: operators of many Internet search engines also train AI models, and many AI models use third-party crawl data. In either case, conflating different uses can change the incentives for publishers to cooperate with the crawler.<a href="#section-2.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-2">Well-established uses of crawling, such as Internet search, were seen by participants as at least partially aligned with the interests of publishers: they allow their sites to be crawled, and in return they receive higher traffic and attention due to being in the search index. However, several participants pointed out that this symbiotic relationship does not exist for AI training uses -- with some viewing AI as hostile to publishers, because it has the capacity to take traffic away from their sites.<a href="#section-2.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-3">Therefore, when a crawler has multiple uses that include AI, participants observed that "collateral damage" was likely for non-AI uses, especially when publishers take more active control measures such as blocking or paywalls to protect their interests.<a href="#section-2.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-4">Several participants expressed concerns about this phenomenon's effects on the ecosystem, effectively "locking down the Web" with one opining that there were implications for freedom of expression overall.<a href="#section-2.1.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="application-of-preferences">
+<section id="section-2.1.2">
+          <h4 id="name-application-of-preferences">
+<a href="#section-2.1.2" class="section-number selfRef">2.1.2. </a><a href="#name-application-of-preferences" class="section-name selfRef">Application of Preferences</a>
+          </h4>
+<p id="section-2.1.2-1">When data is used to train an LLM, the resulting model does not have the ability to only selectively use a portion of it when performing a task, because inference uses the whole model, and it is not possible to identify specific input data for its use in doing so.<a href="#section-2.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.2-2">This means that while publishers preferences may be available when content is crawled, they generally are not when inference takes place. Those preferences that are stated in reference to use by AI -- for example, "no military uses" or "non-commercial only" cannot be applied by a general-purpose "foundation" model.<a href="#section-2.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.1.2-3">This leaves a few unappealing choices to AI vendors that wish to comply with those preferences. They can simply omit such data from foundation models, thereby reducing their viability. Or, they can create a separate model for each permutation of preferences -- with a likely proliferation of models as the set of permutations expands.<a href="#section-2.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.1.2-4">Compounding this issue was the observation that preferences change over time, whereas LLMs are created over long time frames and cannot easily be updated to reflect those changes. Of particular concern to some was how an opt-out regime makes the default stickier.<a href="#section-2.1.2-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="trust">
+<section id="section-2.2">
+        <h3 id="name-trust">
+<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-trust" class="section-name selfRef">Trust</a>
+        </h3>
+<p id="section-2.2-1">This disconnection between the statement of preferences and its application was felt by participants to contribute to a lack of trust in the ecosystem, along with the typical lack of attribution for data sources in LLMs, lack of an incentive for publishers to contribute data, and finally (and most noted) a lack of any means of monitoring compliance with preferences.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-2">This lack of trust led some participants to question whether communicating preferences is sufficient in all cases without an accompanying way to mitigate or track cases of those preferences being followed. Some participants also indicated that lack of trust was the primary cause of increasingly prevalent blocking of AI crawler IP addresses, among other measures.<a href="#section-2.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="attachment">
+<section id="section-2.3">
+        <h3 id="name-attachment">
+<a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-attachment" class="section-name selfRef">Attachment</a>
+        </h3>
+<p id="section-2.3-1">One of the primary focuses of the workshop was on <em>attachment</em> -- how preferences are associated with content on the Internet. A range of mechanisms was discussed.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
+<div id="robotstxt-and-similar">
+<section id="section-2.3.1">
+          <h4 id="name-robotstxt-and-similar">
+<a href="#section-2.3.1" class="section-number selfRef">2.3.1. </a><a href="#name-robotstxt-and-similar" class="section-name selfRef">robots.txt (and similar)</a>
+          </h4>
+<p id="section-2.3.1-1">The Robots Exclusion Protocol <span>[<a href="#RFC9309" class="cite xref">RFC9309</a>]</span> is widely recognised by AI vendors as an attachment mechanism for preferences. Several deficiencies were discussed.<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.1-2">First, it does not scale to offer granular control over large sites where authors might want to express different policies for a range of content (for example, YouTube).<a href="#section-2.3.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.3.1-3">Robots.txt also is typically under the control of the site administrator. If a site has content from many creators (as is often the case for social media and similar platforms), the administrator may not allow them to express their preferences fully, or at all.<a href="#section-2.3.1-3" class="pilcrow">¶</a></p>
+<p id="section-2.3.1-4">If content is copied or moved to a different site, the preferences at the new site need to be explicitly transferred, because robots.txt is a separate resource.<a href="#section-2.3.1-4" class="pilcrow">¶</a></p>
+<p id="section-2.3.1-5">These deficiencies led many participants to feel that robots.txt cannot be the only solution to opt-out: rather, it should be part of a larger system that addresses its shortcomings.<a href="#section-2.3.1-5" class="pilcrow">¶</a></p>
+<p id="section-2.3.1-6">Participants noted that other, similar attachment mechanisms have been proposed. However, none appear to have gained as much attention or implementation (both by AI vendors and content owners) as robots.txt.<a href="#section-2.3.1-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="embedding">
+<section id="section-2.3.2">
+          <h4 id="name-embedding">
+<a href="#section-2.3.2" class="section-number selfRef">2.3.2. </a><a href="#name-embedding" class="section-name selfRef">Embedding</a>
+          </h4>
+<p id="section-2.3.2-1">Another mechanism for associating preferences with content is to embed them into the content itself. Many formats used on the Internet allow this; for example, HTML has the <code>&lt;meta&gt;</code> tag, images have XMP and similar metadata sections, and XML and JSON have rich potential for extensions to carry such data.<a href="#section-2.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-2">Embedded preferences were seen to have the advantage of granularity, and of "travelling with" content as it is produced, when it is moved from site to site, or when it is stored offline.<a href="#section-2.3.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-3">However, several participants pointed out that embedded preferences are easily stripped from most formats. This is a common practice for reducing the size of a file (thereby improving performance when downloading it), and for assuring privacy (since metadata often leaks information unintentionally).<a href="#section-2.3.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-4">Furthermore, some types of content are not suitable for embedding. For example, it is not possible to embed preferences into purely textual content, and Web pages with content from several producers (such as a social media or comments feed) cannot easily reflect preferences for each one.<a href="#section-2.3.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-5">Participants noted that the means of embedding preferences in many formats would need to be determined by or coordinated with organisations outside the IETF. For example, HTML and many image formats are maintained by external bodies.<a href="#section-2.3.2-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="registries">
+<section id="section-2.3.3">
+          <h4 id="name-registries">
+<a href="#section-2.3.3" class="section-number selfRef">2.3.3. </a><a href="#name-registries" class="section-name selfRef">Registries</a>
+          </h4>
+<p id="section-2.3.3-1">In some existing copyright management regimes, it is already common to have a registry of works that is consulted upon use. For example, this approach is often used for photographs, music, and video.<a href="#section-2.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.3-2">Typically, registries use hashing mechanisms to create a "fingerprint" for the content that is robust to changes.<a href="#section-2.3.3-2" class="pilcrow">¶</a></p>
+<p id="section-2.3.3-3">Using a registry decouples the content in question from its location, so that it can be found even if moved. It is also claimed to be robust against stripping of embedded metadata, which is a common practice to improve performance and/or privacy.<a href="#section-2.3.3-3" class="pilcrow">¶</a></p>
+<p id="section-2.3.3-4">However, several participants pointed out issues with deploying registries at Internet scale. While they may be effective for (relatively) closed and well-known ecosystems such as commercial music publishing, applying them to a diverse and very large ecosystem like the Internet has proven problematic.<a href="#section-2.3.3-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="vocabulary">
+<section id="section-2.4">
+        <h3 id="name-vocabulary">
+<a href="#section-2.4" class="section-number selfRef">2.4. </a><a href="#name-vocabulary" class="section-name selfRef">Vocabulary</a>
+        </h3>
+<p id="section-2.4-1">Another major focus area for the workshop was on <em>vocabulary</em> -- the specific semantics of the opt-out signal. Several participants noted that there are already many proposals for vocabularies, as well as many conflicting vocabularies already in use. Several examples were discussed, including where existing terms were ambiguous, did not address common use cases, or were used in conflicting ways by different actors.<a href="#section-2.4-1" class="pilcrow">¶</a></p>
+<p id="section-2.4-2">Although no conclusions regarding exact vocabulary were reached, it was generally agreed that a complex vocabulary is unlikely to succeed.<a href="#section-2.4-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="conclusions">
+<section id="section-3">
+      <h2 id="name-conclusions">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-conclusions" class="section-name selfRef">Conclusions</a>
+      </h2>
+<p id="section-3-1">Participants seemed to agree that on its current path, the ecosystem is not sustainable. As one remarked, "robots.txt is broken and we broke it."<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">Legal uncertainty, along with fundamental limitations of opt-out regimes pointed out above, limit the effectiveness of any technical solution, which will be operating in a system unlike either robots.txt (where there is a symbiotic relationship between content owners and the crawlers) or copyright (where the default is effectively opt-in, not opt-out).<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">However, the workshop ended with general agreement that positive steps could be taken to improve communication of preferences from content owners for AI use cases. In discussion, it was evident that discovery of preferences from multiple attachment mechanisms is necessary to meet the diverse needs of content authors, and that therefore defining how they are combined is important.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-4">We outline a proposed standard program below.<a href="#section-3-4" class="pilcrow">¶</a></p>
+<div id="potential-standards-work">
+<section id="section-3.1">
+        <h3 id="name-potential-standards-work">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-potential-standards-work" class="section-name selfRef">Potential Standards Work</a>
+        </h3>
+<p id="section-3.1-1">The following items were felt to be good starting points for IETF work:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-3.1-2.1">
+            <p id="section-3.1-2.1.1">Attachment to Web sites by location (in robots.txt or a similar mechanism)<a href="#section-3.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="section-3.1-2.2">
+            <p id="section-3.1-2.2.1">Attachment via embedding in IETF-controlled formats (e.g., HTTP headers)<a href="#section-3.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="section-3.1-2.3">
+            <p id="section-3.1-2.3.1">Definition of a common core vocabulary<a href="#section-3.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="section-3.1-2.4">
+            <p id="section-3.1-2.4.1">Definition of the overall regime; e.g., how to combine preferences discovered from multiple attachment mechanisms<a href="#section-3.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-3.1-3">It would be expected that the IETF would coordinate with other SDOs to define embedding in other formats (e.g., HTML).<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+<div id="out-of-initial-scope">
+<section id="section-3.1.1">
+          <h4 id="name-out-of-initial-scope">
+<a href="#section-3.1.1" class="section-number selfRef">3.1.1. </a><a href="#name-out-of-initial-scope" class="section-name selfRef">Out of Initial Scope</a>
+          </h4>
+<p id="section-3.1.1-1">It was broadly agreed that it would not be useful to work on the following items, at least to begin with:<a href="#section-3.1.1-1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="section-3.1.1-2.1">
+              <p id="section-3.1.1-2.1.1">Enforcement mechanisms for preferences<a href="#section-3.1.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-3.1.1-2.2">
+              <p id="section-3.1.1-2.2.1">Registry-based solutions<a href="#section-3.1.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-3.1.1-2.3">
+              <p id="section-3.1.1-2.3.1">Identifying or authenticating crawlers and/or content owners<a href="#section-3.1.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-3.1.1-2.4">
+              <p id="section-3.1.1-2.4.1">Audit or transparency mechanisms<a href="#section-3.1.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-4">
+      <h2 id="name-security-considerations">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-4-1"><em>TODO</em><a href="#section-4-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-5">
+      <h2 id="name-informative-references">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+      </h2>
+<dl class="references">
+<dt id="CHATHAM-HOUSE">[CHATHAM-HOUSE]</dt>
+      <dd>
+<span class="refAuthor">Chatham House</span>, <span class="refTitle">"Chatham House Rule"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.chathamhouse.org/about-us/chatham-house-rule">https://www.chathamhouse.org/about-us/chatham-house-rule</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="CFP">[CFP]</dt>
+      <dd>
+<span class="refAuthor">Internet Architecture Board</span>, <span class="refTitle">"IAB Workshop on AI-CONTROL"</span>, <span>n.d.</span>, <span>&lt;<a href="https://datatracker.ietf.org/group/aicontrolws/about/">https://datatracker.ietf.org/group/aicontrolws/about/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="PAPERS">[PAPERS]</dt>
+      <dd>
+<span class="refAuthor">Internet Architecture Board</span>, <span class="refTitle">"IAB Workshop on AI-CONTROL Materials"</span>, <span>n.d.</span>, <span>&lt;<a href="https://datatracker.ietf.org/group/aicontrolws/materials/">https://datatracker.ietf.org/group/aicontrolws/materials/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="AI-ACT">[AI-ACT]</dt>
+      <dd>
+<span class="refAuthor">European Parliament</span>, <span class="refTitle">"Regulation (eu) 2024/1689 of the European Parliament and of the Council"</span>, <time datetime="2024-06-13" class="refDate">13 June 2024</time>, <span>&lt;<a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">https://eur-lex.europa.eu/eli/reg/2024/1689/oj</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9309">[RFC9309]</dt>
+    <dd>
+<span class="refAuthor">Koster, M.</span>, <span class="refAuthor">Illyes, G.</span>, <span class="refAuthor">Zeller, H.</span>, and <span class="refAuthor">L. Sassman</span>, <span class="refTitle">"Robots Exclusion Protocol"</span>, <span class="seriesInfo">RFC 9309</span>, <span class="seriesInfo">DOI 10.17487/RFC9309</span>, <time datetime="2022-09" class="refDate">September 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9309">https://www.rfc-editor.org/rfc/rfc9309</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="about-the-workshop">
+<section id="appendix-A">
+      <h2 id="name-about-the-workshop">
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-about-the-workshop" class="section-name selfRef">About the Workshop</a>
+      </h2>
+<p id="appendix-A-1">The AI-CONTROL Workshop was held on 2024-09-19 and 2024-09-29 at Wilkinson Barker Knauer in Washington DC, USA.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">Workshop attendees were asked to submit position papers. These papers are published on the IAB website <span>[<a href="#PAPERS" class="cite xref">PAPERS</a>]</span>, unless the submitter requested it be withheld.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<p id="appendix-A-3">The workshop was conducted under the Chatham House Rule <span>[<a href="#CHATHAM-HOUSE" class="cite xref">CHATHAM-HOUSE</a>]</span>, meaning that statements cannot be attributed to individuals or organizations without explicit authorization.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
+<div id="agenda">
+<section id="appendix-A.1">
+        <h3 id="name-agenda">
+<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-agenda" class="section-name selfRef">Agenda</a>
+        </h3>
+<p id="appendix-A.1-1">This section outlines the broad areas of discussion on each day.<a href="#appendix-A.1-1" class="pilcrow">¶</a></p>
+<div id="thursday-2024-09-19">
+<section id="appendix-A.1.1">
+          <h4 id="name-thursday-2024-09-19">
+<a href="#appendix-A.1.1" class="section-number selfRef">A.1.1. </a><a href="#name-thursday-2024-09-19" class="section-name selfRef">Thursday 2024-09-19</a>
+          </h4>
+<span class="break"></span><dl class="dlParallel" id="appendix-A.1.1-1">
+            <dt id="appendix-A.1.1-1.1">Setting the stage</dt>
+            <dd style="margin-left: 1.5em" id="appendix-A.1.1-1.2">
+              <p id="appendix-A.1.1-1.2.1">An overview of the current state of AI opt-out, its impact, and existing work in this space<a href="#appendix-A.1.1-1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="appendix-A.1.1-1.3">Lightning talks</dt>
+            <dd style="margin-left: 1.5em" id="appendix-A.1.1-1.4">
+              <p id="appendix-A.1.1-1.4.1">A variety of perspectives from participants<a href="#appendix-A.1.1-1.4.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="friday-2024-09-20">
+<section id="appendix-A.1.2">
+          <h4 id="name-friday-2024-09-20">
+<a href="#appendix-A.1.2" class="section-number selfRef">A.1.2. </a><a href="#name-friday-2024-09-20" class="section-name selfRef">Friday 2024-09-20</a>
+          </h4>
+<span class="break"></span><dl class="dlParallel" id="appendix-A.1.2-1">
+            <dt id="appendix-A.1.2-1.1">Opt-Out Attachment: robots.txt and beyond</dt>
+            <dd style="margin-left: 1.5em" id="appendix-A.1.2-1.2">
+              <p id="appendix-A.1.2-1.2.1">Considerations in how preferences are attached to content on the Internet<a href="#appendix-A.1.2-1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="appendix-A.1.2-1.3">Vocabulary: what opt-out means</dt>
+            <dd style="margin-left: 1.5em" id="appendix-A.1.2-1.4">
+              <p id="appendix-A.1.2-1.4.1">What information the opt-out signal needs to convey<a href="#appendix-A.1.2-1.4.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="appendix-A.1.2-1.5">Discussion and wrap-up</dt>
+            <dd style="margin-left: 1.5em" id="appendix-A.1.2-1.6">
+              <p id="appendix-A.1.2-1.6.1">Synthesis of the workshop's topics and how future work might unfold<a href="#appendix-A.1.2-1.6.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
+</section>
+</div>
+</section>
+</div>
+<div id="attendees">
+<section id="appendix-A.2">
+        <h3 id="name-attendees">
+<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-attendees" class="section-name selfRef">Attendees</a>
+        </h3>
+<p id="appendix-A.2-1">Attendees of the workshop are listed with their primary affiliation. Attendees from the program committee (PC) and the Internet Architecture Board (IAB) are also marked.<a href="#appendix-A.2-1" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="appendix-A.2-2.1">
+            <p id="appendix-A.2-2.1.1">Jari Arkko, Ericsson<a href="#appendix-A.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.2">
+            <p id="appendix-A.2-2.2.1">Hirochika Asai, Preferred Networks<a href="#appendix-A.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.3">
+            <p id="appendix-A.2-2.3.1">Farzaneh Badiei, Digital Medusa (PC)<a href="#appendix-A.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.4">
+            <p id="appendix-A.2-2.4.1">Fabrice Canel, Microsoft (PC)<a href="#appendix-A.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.5">
+            <p id="appendix-A.2-2.5.1">Lena Cohen, EFF<a href="#appendix-A.2-2.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.6">
+            <p id="appendix-A.2-2.6.1">Alissa Cooper, Knight-Georgetown Institute (PC, IAB)<a href="#appendix-A.2-2.6.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.7">
+            <p id="appendix-A.2-2.7.1">Marwan Fayed, Cloudflare<a href="#appendix-A.2-2.7.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.8">
+            <p id="appendix-A.2-2.8.1">Christopher Flammang, Elsevier<a href="#appendix-A.2-2.8.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.9">
+            <p id="appendix-A.2-2.9.1">Carl Gahnberg<a href="#appendix-A.2-2.9.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.10">
+            <p id="appendix-A.2-2.10.1">Max Gendler, The News Corporation<a href="#appendix-A.2-2.10.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.11">
+            <p id="appendix-A.2-2.11.1">Ted Hardie<a href="#appendix-A.2-2.11.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.12">
+            <p id="appendix-A.2-2.12.1">Dominique Hazaël-Massieux, W3C<a href="#appendix-A.2-2.12.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.13">
+            <p id="appendix-A.2-2.13.1">Gary Ilyes, Google (PC)<a href="#appendix-A.2-2.13.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.14">
+            <p id="appendix-A.2-2.14.1">Sarah Jennings, UK Department for Science, Innovation and Technology<a href="#appendix-A.2-2.14.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.15">
+            <p id="appendix-A.2-2.15.1">Paul Keller, Open Future<a href="#appendix-A.2-2.15.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.16">
+            <p id="appendix-A.2-2.16.1">Elizabeth Kendall, Meta<a href="#appendix-A.2-2.16.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.17">
+            <p id="appendix-A.2-2.17.1">Suresh Krishnan, Cisco (PC, IAB)<a href="#appendix-A.2-2.17.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.18">
+            <p id="appendix-A.2-2.18.1">Mirja Kühlewind, Ericsson (PC, IAB)<a href="#appendix-A.2-2.18.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.19">
+            <p id="appendix-A.2-2.19.1">Greg Leppert, Berkman Klein Center<a href="#appendix-A.2-2.19.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.20">
+            <p id="appendix-A.2-2.20.1">Greg Lindahl, Common Crawl Foundation<a href="#appendix-A.2-2.20.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.21">
+            <p id="appendix-A.2-2.21.1">Mike Linksvayer, GitHub<a href="#appendix-A.2-2.21.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.22">
+            <p id="appendix-A.2-2.22.1">Fred von Lohmann, OpenAI<a href="#appendix-A.2-2.22.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.23">
+            <p id="appendix-A.2-2.23.1">Shayne Longpre, Data Provenance Initiative<a href="#appendix-A.2-2.23.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.24">
+            <p id="appendix-A.2-2.24.1">Don Marti, Raptive<a href="#appendix-A.2-2.24.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.25">
+            <p id="appendix-A.2-2.25.1">Sarah McKenna, Alliance for Responsible Data Collection; CEO, Sequentum<a href="#appendix-A.2-2.25.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.26">
+            <p id="appendix-A.2-2.26.1">Eric Null, Center for Democracy and Technology<a href="#appendix-A.2-2.26.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.27">
+            <p id="appendix-A.2-2.27.1">Chris Needham, BBC<a href="#appendix-A.2-2.27.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.28">
+            <p id="appendix-A.2-2.28.1">Mark Nottingham, Cloudflare (PC)<a href="#appendix-A.2-2.28.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.29">
+            <p id="appendix-A.2-2.29.1">Paul Ohm, Georgetown Law (PC)<a href="#appendix-A.2-2.29.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.30">
+            <p id="appendix-A.2-2.30.1">Braxton Perkins, NBC Universal<a href="#appendix-A.2-2.30.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.31">
+            <p id="appendix-A.2-2.31.1">Chris Petrillo, Wikimedia<a href="#appendix-A.2-2.31.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.32">
+            <p id="appendix-A.2-2.32.1">Sebastian Posth, Liccium<a href="#appendix-A.2-2.32.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.33">
+            <p id="appendix-A.2-2.33.1">Michael Prorock<a href="#appendix-A.2-2.33.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.34">
+            <p id="appendix-A.2-2.34.1">Matt Rogerson, Financial Times<a href="#appendix-A.2-2.34.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.35">
+            <p id="appendix-A.2-2.35.1">Peter Santhanam, IBM<a href="#appendix-A.2-2.35.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.36">
+            <p id="appendix-A.2-2.36.1">Jeffrey Sedlik, IPTC/PLUS<a href="#appendix-A.2-2.36.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.37">
+            <p id="appendix-A.2-2.37.1">Rony Shalit, Alliance For Responsible Data Collection; Bright Data<a href="#appendix-A.2-2.37.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.38">
+            <p id="appendix-A.2-2.38.1">Ian Sohl, OpenAI<a href="#appendix-A.2-2.38.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.39">
+            <p id="appendix-A.2-2.39.1">Martin Thomson, Mozilla<a href="#appendix-A.2-2.39.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.40">
+            <p id="appendix-A.2-2.40.1">Thom Vaughan, Common Crawl Foundation (PC)<a href="#appendix-A.2-2.40.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.41">
+            <p id="appendix-A.2-2.41.1">Kat Walsh, Creative Commons<a href="#appendix-A.2-2.41.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="compact" id="appendix-A.2-2.42">
+            <p id="appendix-A.2-2.42.1">James Whymark, Meta<a href="#appendix-A.2-2.42.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="appendix-A.2-3">The following participants requested that their identity and/or affiliation not be revealed:<a href="#appendix-A.2-3" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="appendix-A.2-4.1">
+            <p id="appendix-A.2-4.1.1">A government official<a href="#appendix-A.2-4.1.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+</section>
+</div>
+</section>
+</div>
+<div id="iab-members-at-the-time-of-approval">
+<section id="appendix-B">
+      <h2 id="name-iab-members-at-the-time-of-">
+<a href="#name-iab-members-at-the-time-of-" class="section-name selfRef">IAB Members at the Time of Approval</a>
+      </h2>
+<p id="appendix-B-1">Internet Architecture Board members at the time this document was approved for publication were:<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-2"><em>TBC</em><a href="#appendix-B-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="acknowledgements">
+<section id="appendix-C">
+      <h2 id="name-acknowledgements">
+<a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
+      </h2>
+<p id="appendix-C-1">The Program Committee and the IAB would like to thank Wilkinson Barker Knauer for their generosity in hosting the workshop.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
+<p id="appendix-C-2">We also thank our scribes for capturing notes that assisted in production of this report:<a href="#appendix-C-2" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="appendix-C-3.1">
+          <p id="appendix-C-3.1.1">Zander Arnao<a href="#appendix-C-3.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="compact" id="appendix-C-3.2">
+          <p id="appendix-C-3.2.1">Andrea Dean<a href="#appendix-C-3.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="compact" id="appendix-C-3.3">
+          <p id="appendix-C-3.3.1">Patrick Yurky<a href="#appendix-C-3.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-D">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Mark Nottingham</span></div>
+<div dir="auto" class="left"><span class="org">Cloudflare</span></div>
+<div dir="auto" class="left"><span class="street-address">Prahran</span></div>
+<div dir="auto" class="left"><span class="country-name">Australia</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:mnot@mnot.net" class="email">mnot@mnot.net</a>
+</div>
+<div class="url">
+<span>URI:</span>
+<a href="https://www.mnot.net/" class="url">https://www.mnot.net/</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Suresh Krishnan</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:suresh.krishnan@gmail.com" class="email">suresh.krishnan@gmail.com</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>

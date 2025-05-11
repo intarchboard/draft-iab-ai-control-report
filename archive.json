@@ -1,0 +1,98 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2025-05-11T01:41:43.644246+00:00",
+  "repo": "intarchboard/draft-iab-ai-control-report",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDONZI-Xc6RzHoO",
+      "title": "Some initial grammar nits.",
+      "url": "https://github.com/intarchboard/draft-iab-ai-control-report/pull/1",
+      "state": "MERGED",
+      "author": "wkumari",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I have some larger questions, which I'll add to the tracking issue.",
+      "createdAt": "2025-04-08T14:31:17Z",
+      "updatedAt": "2025-04-11T07:28:07Z",
+      "baseRepository": "intarchboard/draft-iab-ai-control-report",
+      "baseRefName": "main",
+      "baseRefOid": "1b9c74620e3090c9a68cf457329d9b55dca323ee",
+      "headRepository": "intarchboard/draft-iab-ai-control-report",
+      "headRefName": "wk_initial_grammar",
+      "headRefOid": "15dd45d1b203393fa393cb0c443f4b7f761da7d4",
+      "closedAt": "2025-04-11T07:28:01Z",
+      "mergedAt": "2025-04-11T07:28:01Z",
+      "mergedBy": "mnot",
+      "mergeCommit": {
+        "oid": "dfc21a3e7edca4a83c8270aa02b55fd3daf65571"
+      },
+      "comments": [
+        {
+          "author": "wkumari",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Weird. I just discovered that I can only list a single reviewer on this PR - adding Mark removes Suresh, and re-adding Suresh removes Mark...\r\n\r\nThe \"Reviewers\" section says:`Request up to 1 reviewer` ...",
+          "createdAt": "2025-04-08T16:24:57Z",
+          "updatedAt": "2025-04-08T16:24:57Z"
+        },
+        {
+          "author": "mnot",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks!",
+          "createdAt": "2025-04-11T07:28:06Z",
+          "updatedAt": "2025-04-11T07:28:06Z"
+        }
+      ],
+      "reviews": []
+    }
+  ]
+}

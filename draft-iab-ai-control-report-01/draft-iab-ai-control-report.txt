@@ -5,8 +5,8 @@
 Network Working Group                                      M. Nottingham
 Internet-Draft                                                Cloudflare
 Intended status: Informational                               S. Krishnan
-Expires: 10 October 2025                                           Cisco
-                                                            8 April 2025
+Expires: 15 November 2025                                          Cisco
+                                                             14 May 2025
 
 
                      IAB AI-CONTROL Workshop Report
@@ -41,7 +41,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 October 2025.
+   This Internet-Draft will expire on 15 November 2025.
 
 Copyright Notice
 

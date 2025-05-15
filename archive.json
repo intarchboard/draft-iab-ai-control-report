@@ -1,55 +1,67 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-13T01:38:11.102263+00:00",
+  "timestamp": "2025-05-15T01:26:44.989649+00:00",
   "repo": "intarchboard/draft-iab-ai-control-report",
   "labels": [
     {
-      "name": "bug",
-      "description": "Something isn't working",
-      "color": "d73a4a"
+      "name": "age-assurance",
+      "description": "Related to age assurance or age verification",
+      "color": "c5def5"
     },
     {
-      "name": "documentation",
-      "description": "Improvements or additions to documentation",
-      "color": "0075ca"
+      "name": "encryption",
+      "description": "Related to encryption or encryption policy.",
+      "color": "2ECD7D"
     },
     {
-      "name": "duplicate",
-      "description": "This issue or pull request already exists",
-      "color": "cfd3d7"
+      "name": "IAB-action-request",
+      "description": "An item where the IAB either has been or will likely be requested to decide whether to take action.",
+      "color": "3D16C6"
     },
     {
-      "name": "enhancement",
-      "description": "New feature or request",
-      "color": "a2eeef"
+      "name": "IGF",
+      "description": "Related to the Internet Governance Forum (IGF)",
+      "color": "14CCD9"
     },
     {
-      "name": "good first issue",
-      "description": "Good for newcomers",
-      "color": "7057ff"
+      "name": "Informational",
+      "description": "For informing the IAB but not requiring further action",
+      "color": "F50704"
     },
     {
-      "name": "help wanted",
-      "description": "Extra attention is needed",
-      "color": "008672"
+      "name": "internet-governance",
+      "description": "Related to the area of Internet governance",
+      "color": "F04DFB"
     },
     {
-      "name": "invalid",
-      "description": "This doesn't seem right",
-      "color": "e4e669"
+      "name": "sign-on-opportunity",
+      "description": "An opportunity for the IAB to sign on to an joint letter or statement.",
+      "color": "7E9EB9"
     },
     {
-      "name": "question",
-      "description": "Further information is requested",
-      "color": "d876e3"
-    },
-    {
-      "name": "wontfix",
-      "description": "This will not be worked on",
-      "color": "ffffff"
+      "name": "WSIS",
+      "description": "Related to the World Summit on the Information Society (WSIS)",
+      "color": "60D51F"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDONZI-Xc62joVq",
+      "title": "Remove affiliations for authors for an IAB stream document",
+      "url": "https://github.com/intarchboard/draft-iab-ai-control-report/issues/2",
+      "state": "OPEN",
+      "author": "dhruvdhody",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "We don't include our affiliations in the IAB stream documents. \n\nSee https://wiki.ietf.org/group/iab/iab-stream-rfc-format\n",
+      "createdAt": "2025-05-14T11:30:40Z",
+      "updatedAt": "2025-05-14T11:30:40Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,

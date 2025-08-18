@@ -23,16 +23,10 @@ author:
  -
     ins: M. Nottingham
     name: Mark Nottingham
-    organization: Cloudflare
-    postal:
-      - Prahran
-    country: Australia
     email: mnot@mnot.net
-    uri: https://www.mnot.net/
  -
     ins: S. Krishnan
     name: Suresh Krishnan
-    organization: Cisco
     email: suresh.krishnan@gmail.com
 
 normative:

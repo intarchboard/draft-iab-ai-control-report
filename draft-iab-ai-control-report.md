@@ -74,9 +74,9 @@ Note that this document is a report on the proceedings of the workshop.  The vie
 
 The Internet Architecture Board (IAB) holds occasional workshops designed to consider long-term issues and strategies for the Internet, and to suggest future directions for the Internet architecture. This long-term planning function of the IAB is complementary to the ongoing engineering efforts performed by working groups of the Internet Engineering Task Force (IETF).
 
-The Internet is one of the major sources of data used to train large language models (LLMs, or more generally "AI"). Because this use was not envisioned by most publishers of information on the Internet, a means of expressing the owners' preferences regarding AI crawling has emerged, sometimes backed by law (e.g., in the European Union's AI Act {{AI-ACT}}).
+The Internet is one of the major sources of data used to train large language models (Large Language Models (LLMs), or more generally, "Artificial Intelligence (AI)"). Because this use was not envisioned by most publishers of information on the Internet, a means of expressing the owners' preferences regarding AI crawling has emerged, sometimes backed by law (e.g., in the European Union's AI Act {{AI-ACT}}).
 
-The IAB convened the AI-CONTROL Workshop to "explore practical opt-out mechanisms for AI and build an understanding of use cases, requirements, and other considerations in this space." {{CFP}} In particular, the emerging practice of using the Robots Exclusion Protocol {{?RFC9309}} -- also known as "robots.txt" -- has been uncoordinated, and may or may not be a suitable way to control AI crawlers. However, discussion was not limited to consideration of robots.txt, and approaches other than opt-out were considered.
+The IAB convened the AI-CONTROL Workshop to "explore practical opt-out mechanisms for AI and build an understanding of use cases, requirements, and other considerations in this space" {{CFP}}. In particular, the emerging practice of using the Robots Exclusion Protocol {{?RFC9309}} -- also known as "robots.txt" -- has been uncoordinated, and may or may not be a suitable way to control AI crawlers. However, discussion was not limited to consideration of robots.txt, and approaches other than opt-out were considered.
 
 To ensure many viewpoints were represented, the program committee invited a broad selection of technical experts, AI vendors, content publishers, civil society advocates, and policymakers.
 
@@ -85,7 +85,7 @@ To ensure many viewpoints were represented, the program committee invited a broa
 
 Participants agreed to conduct the workshop under the Chatham House Rule {{CHATHAM-HOUSE}}, so this report does not attribute statements to individuals or organizations without express permission. Most submissions to the workshop were public and thus attributable; they are used here to provide substance and context.
 
-{{attendees}} lists the workshop participants, unless they requested that this information be witheld.
+{{attendees}} lists the workshop participants, unless they requested that this information be withheld.
 
 ## Views Expressed in this Report
 
@@ -115,9 +115,9 @@ Perhaps most significant is the "crawl time vs. inference time" problem. Stateme
 
 A crawl's data might have multiple uses because the vendor also has another product that uses it (e.g., a search engine), or because the crawl is performed by a party other than the AI vendor. Both are very common patterns: operators of many Internet search engines also train AI models, and many AI models use third-party crawl data. In either case, conflating different uses can change the incentives for publishers to cooperate with the crawler.
 
-Well-established uses of crawling, such as Internet search, were seen by participants as at least partially aligned with the interests of publishers: they allow their sites to be crawled, and in return they receive higher traffic and attention due to being in the search index. However, several participants pointed out that this symbiotic relationship does not exist for AI training uses -- with some viewing AI as hostile to publishers, because it has the capacity to take traffic away from their sites.
+Well-established uses of crawling, such as Internet search, were seen by participants as at least partially aligned with the interests of publishers: they allow their sites to be crawled, and in return, they receive higher traffic and attention due to being in the search index. However, several participants pointed out that this symbiotic relationship does not exist for AI training uses -- with some viewing AI as hostile to publishers, because it has the capacity to take traffic away from their sites.
 
-Therefore, when a crawler has multiple uses that include AI, participants observed that "collateral damage" was likely for non-AI uses, especially when publishers take more active control measures such as blocking or paywalls to protect their interests.
+Therefore, when a crawler has multiple uses that include AI, participants observed that "collateral damage" was likely for non-AI uses, especially when publishers take more active control measures, such as blocking or paywalls, to protect their interests.
 
 Several participants expressed concerns about this phenomenon's effects on the ecosystem, effectively "locking down the Web" with one opining that there were implications for freedom of expression overall.
 
@@ -125,7 +125,7 @@ Several participants expressed concerns about this phenomenon's effects on the e
 
 When data is used to train an LLM, the resulting model does not have the ability to only selectively use a portion of it when performing a task, because inference uses the whole model, and it is not possible to identify specific input data for its use in doing so.
 
-This means that while publishers preferences may be available when content is crawled, they generally are not when inference takes place. Those preferences that are stated in reference to use by AI -- for example, "no military uses" or "non-commercial only" cannot be applied by a general-purpose "foundation" model.
+This means that while publishers' preferences may be available when content is crawled, they generally are not when inference takes place. Those preferences that are stated in reference to use by AI -- for example, "no military uses" or "non-commercial only" cannot be applied by a general-purpose "foundation" model.
 
 This leaves a few unappealing choices to AI vendors that wish to comply with those preferences. They can simply omit such data from foundation models, thereby reducing their viability. Or, they can create a separate model for each permutation of preferences -- with a likely proliferation of models as the set of permutations expands.
 
@@ -135,7 +135,7 @@ Compounding this issue was the observation that preferences change over time, wh
 
 This disconnection between the statement of preferences and its application was felt by participants to contribute to a lack of trust in the ecosystem, along with the typical lack of attribution for data sources in LLMs, lack of an incentive for publishers to contribute data, and finally (and most noted) a lack of any means of monitoring compliance with preferences.
 
-This lack of trust led some participants to question whether communicating preferences is sufficient in all cases without an accompanying way to mitigate or track cases of those preferences being followed. Some participants also indicated that lack of trust was the primary cause of increasingly prevalent blocking of AI crawler IP addresses, among other measures.
+This lack of trust led some participants to question whether communicating preferences is sufficient in all cases without an accompanying way to mitigate or track cases of those preferences being followed. Some participants also indicated that a lack of trust was the primary cause of the increasingly prevalent blocking of AI crawler IP addresses, among other measures.
 
 ## Attachment
 
@@ -147,7 +147,7 @@ The Robots Exclusion Protocol {{RFC9309}} is widely recognised by AI vendors as 
 
 First, it does not scale to offer granular control over large sites where authors might want to express different policies for a range of content (for example, YouTube).
 
-Robots.txt also is typically under the control of the site administrator. If a site has content from many creators (as is often the case for social media and similar platforms), the administrator may not allow them to express their preferences fully, or at all.
+Robots.txt is also typically under the control of the site administrator. If a site has content from many creators (as is often the case for social media and similar platforms), the administrator may not allow them to express their preferences fully, or at all.
 
 If content is copied or moved to a different site, the preferences at the new site need to be explicitly transferred, because robots.txt is a separate resource.
 
@@ -190,7 +190,7 @@ Participants seemed to agree that on its current path, the ecosystem is not sust
 
 Legal uncertainty, along with fundamental limitations of opt-out regimes pointed out above, limit the effectiveness of any technical solution, which will be operating in a system unlike either robots.txt (where there is a symbiotic relationship between content owners and the crawlers) or copyright (where the default is effectively opt-in, not opt-out).
 
-However, the workshop ended with general agreement that positive steps could be taken to improve communication of preferences from content owners for AI use cases. In discussion, it was evident that discovery of preferences from multiple attachment mechanisms is necessary to meet the diverse needs of content authors, and that therefore defining how they are combined is important.
+However, the workshop ended with general agreement that positive steps could be taken to improve the communication of preferences from content owners for AI use cases. In discussion, it was evident that the discovery of preferences from multiple attachment mechanisms is necessary to meet the diverse needs of content authors, and that therefore defining how they are combined is important.
 
 We outline a proposed standard program below.
 
@@ -216,7 +216,7 @@ It was broadly agreed that it would not be useful to work on the following items
 
 # Security Considerations
 
-_TODO_
+This document is a workshop report and does not impact the security of the Internet.
 
 
 
@@ -225,7 +225,7 @@ _TODO_
 
 # About the Workshop
 
-The AI-CONTROL Workshop was held on 2024-09-19 and 2024-09-29 at Wilkinson Barker Knauer in Washington DC, USA.
+The AI-CONTROL Workshop was held on 2024-09-19 and 2024-09-20 at Wilkinson Barker Knauer in Washington DC, USA.
 
 Workshop attendees were asked to submit position papers. These papers are published on the IAB website [PAPERS], unless the submitter requested it be withheld.
 
@@ -311,7 +311,19 @@ The following participants requested that their identity and/or affiliation not 
 
 Internet Architecture Board members at the time this document was approved for publication were:
 
-_TBC_
+- Matthew Bocci
+- Roman Danyliw
+- Dhruv Dhody
+- Jana Iyengar
+- Cullen Jennings
+- Suresh Krishnan
+- Mirja Kühlewind
+- Warren Kumari
+- Jason Livingood
+- Mark Nottingham
+- Tommy Pauly
+- Alvaro Retana
+- Qin Wu
 
 
 # Acknowledgements
@@ -319,7 +331,7 @@ _TBC_
 
 The Program Committee and the IAB would like to thank Wilkinson Barker Knauer for their generosity in hosting the workshop.
 
-We also thank our scribes for capturing notes that assisted in production of this report:
+We also thank our scribes for capturing notes that assisted in the production of this report:
 
 * Zander Arnao
 * Andrea Dean

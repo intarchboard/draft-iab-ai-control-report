@@ -23,7 +23,11 @@ author:
  -
     ins: M. Nottingham
     name: Mark Nottingham
+    postal:
+      - Prahran
+    country: Australia
     email: mnot@mnot.net
+    uri: https://www.mnot.net/
  -
     ins: S. Krishnan
     name: Suresh Krishnan

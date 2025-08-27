@@ -3,10 +3,9 @@
 
 
 Network Working Group                                      M. Nottingham
-Internet-Draft                                                Cloudflare
+Internet-Draft                                                          
 Intended status: Informational                               S. Krishnan
-Expires: 13 October 2025                                           Cisco
-                                                           11 April 2025
+Expires: 28 February 2026                                 27 August 2025
 
 
                      IAB AI-CONTROL Workshop Report
@@ -18,6 +17,11 @@ Abstract
    Board (IAB) in September 2024.  This report summarizes its
    significant points of discussion and identifies topics that may
    warrant further consideration and work.
+
+   Note that this document is a report on the proceedings of the
+   workshop.  The views and positions documented in this report are
+   those of the workshop participants and do not necessarily reflect IAB
+   views and positions.
 
 Discussion Venues
 
@@ -41,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 October 2025.
+   This Internet-Draft will expire on 28 February 2026.
 
 Copyright Notice
 
@@ -93,15 +97,16 @@ Table of Contents
    groups of the Internet Engineering Task Force (IETF).
 
    The Internet is one of the major sources of data used to train large
-   language models (LLMs, or more generally "AI").  Because this use was
-   not envisioned by most publishers of information on the Internet, a
-   means of expressing the owners' preferences regarding AI crawling has
-   emerged, sometimes backed by law (e.g., in the European Union's AI
-   Act [AI-ACT]).
+   language models (Large Language Models (LLMs), or more generally,
+   "Artificial Intelligence (AI)").  Because this use was not envisioned
+   by most publishers of information on the Internet, a means of
+   expressing the owners' preferences regarding AI crawling has emerged,
+   sometimes backed by law (e.g., in the European Union's AI Act
+   [AI-ACT]).
 
    The IAB convened the AI-CONTROL Workshop to "explore practical opt-
    out mechanisms for AI and build an understanding of use cases,
-   requirements, and other considerations in this space."  [CFP] In
+   requirements, and other considerations in this space" [CFP].  In
    particular, the emerging practice of using the Robots Exclusion
    Protocol [RFC9309] -- also known as "robots.txt" -- has been
    uncoordinated, and may or may not be a suitable way to control AI
@@ -121,7 +126,7 @@ Table of Contents
    are used here to provide substance and context.
 
    Appendix A.2 lists the workshop participants, unless they requested
-   that this information be witheld.
+   that this information be withheld.
 
 1.2.  Views Expressed in this Report
 
@@ -197,7 +202,7 @@ Table of Contents
 
    Well-established uses of crawling, such as Internet search, were seen
    by participants as at least partially aligned with the interests of
-   publishers: they allow their sites to be crawled, and in return they
+   publishers: they allow their sites to be crawled, and in return, they
    receive higher traffic and attention due to being in the search
    index.  However, several participants pointed out that this symbiotic
    relationship does not exist for AI training uses -- with some viewing
@@ -206,8 +211,8 @@ Table of Contents
 
    Therefore, when a crawler has multiple uses that include AI,
    participants observed that "collateral damage" was likely for non-AI
-   uses, especially when publishers take more active control measures
-   such as blocking or paywalls to protect their interests.
+   uses, especially when publishers take more active control measures,
+   such as blocking or paywalls, to protect their interests.
 
    Several participants expressed concerns about this phenomenon's
    effects on the ecosystem, effectively "locking down the Web" with one
@@ -221,7 +226,7 @@ Table of Contents
    task, because inference uses the whole model, and it is not possible
    to identify specific input data for its use in doing so.
 
-   This means that while publishers preferences may be available when
+   This means that while publishers' preferences may be available when
    content is crawled, they generally are not when inference takes
    place.  Those preferences that are stated in reference to use by AI
    -- for example, "no military uses" or "non-commercial only" cannot be
@@ -250,9 +255,9 @@ Table of Contents
    This lack of trust led some participants to question whether
    communicating preferences is sufficient in all cases without an
    accompanying way to mitigate or track cases of those preferences
-   being followed.  Some participants also indicated that lack of trust
-   was the primary cause of increasingly prevalent blocking of AI
-   crawler IP addresses, among other measures.
+   being followed.  Some participants also indicated that a lack of
+   trust was the primary cause of the increasingly prevalent blocking of
+   AI crawler IP addresses, among other measures.
 
 2.3.  Attachment
 
@@ -270,7 +275,7 @@ Table of Contents
    where authors might want to express different policies for a range of
    content (for example, YouTube).
 
-   Robots.txt also is typically under the control of the site
+   Robots.txt is also typically under the control of the site
    administrator.  If a site has content from many creators (as is often
    the case for social media and similar platforms), the administrator
    may not allow them to express their preferences fully, or at all.
@@ -365,9 +370,9 @@ Table of Contents
    effectively opt-in, not opt-out).
 
    However, the workshop ended with general agreement that positive
-   steps could be taken to improve communication of preferences from
+   steps could be taken to improve the communication of preferences from
    content owners for AI use cases.  In discussion, it was evident that
-   discovery of preferences from multiple attachment mechanisms is
+   the discovery of preferences from multiple attachment mechanisms is
    necessary to meet the diverse needs of content authors, and that
    therefore defining how they are combined is important.
 
@@ -401,7 +406,8 @@ Table of Contents
 
 4.  Security Considerations
 
-   _TODO_
+   This document is a workshop report and does not impact the security
+   of the Internet.
 
 5.  Informative References
 
@@ -430,7 +436,7 @@ Table of Contents
 
 Appendix A.  About the Workshop
 
-   The AI-CONTROL Workshop was held on 2024-09-19 and 2024-09-29 at
+   The AI-CONTROL Workshop was held on 2024-09-19 and 2024-09-20 at
    Wilkinson Barker Knauer in Washington DC, USA.
 
    Workshop attendees were asked to submit position papers.  These
@@ -524,14 +530,26 @@ IAB Members at the Time of Approval
    Internet Architecture Board members at the time this document was
    approved for publication were:
 
-   _TBC_
+   *  Matthew Bocci
+   *  Roman Danyliw
+   *  Dhruv Dhody
+   *  Jana Iyengar
+   *  Cullen Jennings
+   *  Suresh Krishnan
+   *  Mirja Kühlewind
+   *  Warren Kumari
+   *  Jason Livingood
+   *  Mark Nottingham
+   *  Tommy Pauly
+   *  Alvaro Retana
+   *  Qin Wu
 
 Acknowledgements
 
    The Program Committee and the IAB would like to thank Wilkinson
    Barker Knauer for their generosity in hosting the workshop.
 
-   We also thank our scribes for capturing notes that assisted in
+   We also thank our scribes for capturing notes that assisted in the
    production of this report:
 
    *  Zander Arnao
@@ -541,13 +559,11 @@ Acknowledgements
 Authors' Addresses
 
    Mark Nottingham
-   Cloudflare
-   Prahran
+   Melbourne
    Australia
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
 
 
    Suresh Krishnan
-   Cisco
    Email: suresh.krishnan@gmail.com

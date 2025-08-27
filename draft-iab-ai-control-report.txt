@@ -104,14 +104,16 @@ Table of Contents
    sometimes backed by law (e.g., in the European Union's AI Act
    [AI-ACT]).
 
-   The IAB convened the AI-CONTROL Workshop to "explore practical opt-
-   out mechanisms for AI and build an understanding of use cases,
-   requirements, and other considerations in this space" [CFP].  In
-   particular, the emerging practice of using the Robots Exclusion
-   Protocol [RFC9309] -- also known as "robots.txt" -- has been
-   uncoordinated, and may or may not be a suitable way to control AI
-   crawlers.  However, discussion was not limited to consideration of
-   robots.txt, and approaches other than opt-out were considered.
+   The IAB convened the AI-CONTROL Workshop on 19-20 September 2024 to
+   "explore practical opt-out mechanisms for AI and build an
+   understanding of use cases, requirements, and other considerations in
+   this space" [CFP].  In particular, the emerging practice of using the
+   Robots Exclusion Protocol [RFC9309] -- also known as "robots.txt" --
+   has not been coordinated between AI crawlers, resulting in
+   considerable differences in how they treat it.  Furthermore,
+   robots.txt may or may not be a suitable way to control AI crawlers.
+   However, discussion was not limited to consideration of robots.txt,
+   and approaches other than opt-out were considered.
 
    To ensure many viewpoints were represented, the program committee
    invited a broad selection of technical experts, AI vendors, content
@@ -147,21 +149,22 @@ Table of Contents
 
    Currently, Internet publishers express their preferences for how
    their content is treated for purposes of AI training using a variety
-   of mechanisms, including declarative ones, such as terms of service
-   and robots.txt [RFC9309], and active ones, such as the use of
-   paywalls and selective blocking of crawlers (e.g., by IP address,
-   User-Agent).
+   of mechanisms, including declarative ones, such as terms of service,
+   embedded metadata, and robots.txt [RFC9309], and active ones, such as
+   use of paywalls and selective blocking of crawlers (e.g., by IP
+   address, User-Agent).
 
    There was disagreement about the implications of AI opt-out overall.
-   Research indicates that the use of such controls is becoming more
-   prevalent, reducing the availability of data for AI training.  Some
-   of the participants expressed concern about the implications of this
-   -- although at least one AI vendor seemed less concerned by this,
-   indicating that "there are plenty of tokens available" for training,
-   even if many opt out.  Others expressed a need to opt out of AI
-   training because of how they perceive its effects on their control
-   over content, seeing AI as usurping their relationships with
-   customers and a potential threat to whole industries.
+   Research presented at the workshop [DECLINE] indicates that the use
+   of such controls is becoming more prevalent, reducing the
+   availability of data for AI training.  Some of the participants
+   expressed concern about the implications of this -- although at least
+   one AI vendor seemed less concerned by this, indicating that "there
+   are plenty of tokens available" for training, even if many opt out.
+   Others expressed a need to opt out of AI training because of how they
+   perceive its effects on their control over content, seeing AI as
+   usurping their relationships with customers and a potential threat to
+   whole industries.
 
    However, there was quick agreement that both viewpoints were harmed
    by the current state of AI opt-out -- a situation where "no one is
@@ -241,7 +244,10 @@ Table of Contents
    Compounding this issue was the observation that preferences change
    over time, whereas LLMs are created over long time frames and cannot
    easily be updated to reflect those changes.  Of particular concern to
-   some was how an opt-out regime makes the default stickier.
+   some was how this makes an opt-out regime "stickier" because content
+   that has no associated preference (such as that which predates the
+   authors' knowledge of LLMs) is allowed to be used for these
+   unforeseen purposes.
 
 2.2.  Trust
 
@@ -254,10 +260,10 @@ Table of Contents
 
    This lack of trust led some participants to question whether
    communicating preferences is sufficient in all cases without an
-   accompanying way to mitigate or track cases of those preferences
-   being followed.  Some participants also indicated that a lack of
-   trust was the primary cause of the increasingly prevalent blocking of
-   AI crawler IP addresses, among other measures.
+   accompanying way to enforce them, or even to audit adherence to them.
+   Some participants also indicated that a lack of trust was the primary
+   cause of the increasingly prevalent blocking of AI crawler IP
+   addresses, among other measures.
 
 2.3.  Attachment
 
@@ -358,7 +364,7 @@ Table of Contents
 
 3.  Conclusions
 
-   Participants seemed to agree that on its current path, the ecosystem
+   Participants generally agreed that on its current path, the ecosystem
    is not sustainable.  As one remarked, "robots.txt is broken and we
    broke it."
 
@@ -428,6 +434,12 @@ Table of Contents
    [AI-ACT]   European Parliament, "Regulation (eu) 2024/1689 of the
               European Parliament and of the Council", 13 June 2024,
               <https://eur-lex.europa.eu/eli/reg/2024/1689/oj>.
+
+   [DECLINE]  Longpre, S., Mahari, R., Lee, A., and C. Lund, "Consent in
+              Crisis: The Rapid Decline of the AI Data Commons", 2025,
+              <https://www.ietf.org/slides/slides-aicontrolws-consent-
+              in-crisis-the-rapid-decline-of-the-ai-data-commons-
+              00.pdf>.
 
    [RFC9309]  Koster, M., Illyes, G., Zeller, H., and L. Sassman,
               "Robots Exclusion Protocol", RFC 9309,
@@ -500,8 +512,7 @@ A.2.  Attendees
    *  Fred von Lohmann, OpenAI
    *  Shayne Longpre, Data Provenance Initiative
    *  Don Marti, Raptive
-   *  Sarah McKenna, Alliance for Responsible Data Collection; CEO,
-      Sequentum
+   *  Sarah McKenna, Alliance for Responsible Data Collection; Sequentum
    *  Eric Null, Center for Democracy and Technology
    *  Chris Needham, BBC
    *  Mark Nottingham, Cloudflare (PC)

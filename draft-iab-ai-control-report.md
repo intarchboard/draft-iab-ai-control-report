@@ -66,6 +66,24 @@ informative:
         org: European Parliament
     date: 2024-06-13
 
+  DECLINE:
+    title: "Consent in Crisis: The Rapid Decline of the AI Data Commons"
+    target: https://www.ietf.org/slides/slides-aicontrolws-consent-in-crisis-the-rapid-decline-of-the-ai-data-commons-00.pdf
+    author:
+      -
+        ins: S. Longpre
+        name: Shayne Longpre
+      -
+        ins: R. Mahari
+        name: Robert Mahari
+      -
+        ins: A. Lee
+        name: Ariel Lee
+      -
+        ins: C. Lund
+        name: Campbell Lund
+    date: 2025
+
 --- abstract
 
 The AI-CONTROL Workshop was convened by the Internet Architecture Board (IAB) in September 2024. This report summarizes its significant points of discussion and identifies topics that may warrant further consideration and work.
@@ -80,7 +98,7 @@ The Internet Architecture Board (IAB) holds occasional workshops designed to con
 
 The Internet is one of the major sources of data used to train large language models (Large Language Models (LLMs), or more generally, "Artificial Intelligence (AI)"). Because this use was not envisioned by most publishers of information on the Internet, a means of expressing the owners' preferences regarding AI crawling has emerged, sometimes backed by law (e.g., in the European Union's AI Act {{AI-ACT}}).
 
-The IAB convened the AI-CONTROL Workshop to "explore practical opt-out mechanisms for AI and build an understanding of use cases, requirements, and other considerations in this space" {{CFP}}. In particular, the emerging practice of using the Robots Exclusion Protocol {{?RFC9309}} -- also known as "robots.txt" -- has been uncoordinated, and may or may not be a suitable way to control AI crawlers. However, discussion was not limited to consideration of robots.txt, and approaches other than opt-out were considered.
+The IAB convened the AI-CONTROL Workshop on 19-20 September 2024 to "explore practical opt-out mechanisms for AI and build an understanding of use cases, requirements, and other considerations in this space" {{CFP}}. In particular, the emerging practice of using the Robots Exclusion Protocol {{?RFC9309}} -- also known as "robots.txt" -- has not been coordinated between AI crawlers, resulting in considerable differences in how they treat it. Furthermore, robots.txt may or may not be a suitable way to control AI crawlers. However, discussion was not limited to consideration of robots.txt, and approaches other than opt-out were considered.
 
 To ensure many viewpoints were represented, the program committee invited a broad selection of technical experts, AI vendors, content publishers, civil society advocates, and policymakers.
 
@@ -101,9 +119,9 @@ Furthermore, the content of the report comes from presentations given by worksho
 
 The workshop began by surveying the state of AI control.
 
-Currently, Internet publishers express their preferences for how their content is treated for purposes of AI training using a variety of mechanisms, including declarative ones, such as terms of service and robots.txt {{RFC9309}}, and active ones, such as the use of paywalls and selective blocking of crawlers (e.g., by IP address, User-Agent).
+Currently, Internet publishers express their preferences for how their content is treated for purposes of AI training using a variety of mechanisms, including declarative ones, such as terms of service, embedded metadata, and robots.txt {{RFC9309}}, and active ones, such as use of paywalls and selective blocking of crawlers (e.g., by IP address, User-Agent).
 
-There was disagreement about the implications of AI opt-out overall. Research indicates that the use of such controls is becoming more prevalent, reducing the availability of data for AI training. Some of the participants expressed concern about the implications of this -- although at least one AI vendor seemed less concerned by this, indicating that "there are plenty of tokens available" for training, even if many opt out. Others expressed a need to opt out of AI training because of how they perceive its effects on their control over content, seeing AI as usurping their relationships with customers and a potential threat to whole industries.
+There was disagreement about the implications of AI opt-out overall. Research presented at the workshop {{DECLINE}} indicates that the use of such controls is becoming more prevalent, reducing the availability of data for AI training. Some of the participants expressed concern about the implications of this -- although at least one AI vendor seemed less concerned by this, indicating that "there are plenty of tokens available" for training, even if many opt out. Others expressed a need to opt out of AI training because of how they perceive its effects on their control over content, seeing AI as usurping their relationships with customers and a potential threat to whole industries.
 
 However, there was quick agreement that both viewpoints were harmed by the current state of AI opt-out -- a situation where "no one is better off" (in the words of one participant).
 
@@ -133,13 +151,13 @@ This means that while publishers' preferences may be available when content is c
 
 This leaves a few unappealing choices to AI vendors that wish to comply with those preferences. They can simply omit such data from foundation models, thereby reducing their viability. Or, they can create a separate model for each permutation of preferences -- with a likely proliferation of models as the set of permutations expands.
 
-Compounding this issue was the observation that preferences change over time, whereas LLMs are created over long time frames and cannot easily be updated to reflect those changes. Of particular concern to some was how an opt-out regime makes the default stickier.
+Compounding this issue was the observation that preferences change over time, whereas LLMs are created over long time frames and cannot easily be updated to reflect those changes. Of particular concern to some was how this makes an opt-out regime "stickier" because content that has no associated preference (such as that which predates the authors' knowledge of LLMs) is allowed to be used for these unforeseen purposes.
 
 ## Trust
 
 This disconnection between the statement of preferences and its application was felt by participants to contribute to a lack of trust in the ecosystem, along with the typical lack of attribution for data sources in LLMs, lack of an incentive for publishers to contribute data, and finally (and most noted) a lack of any means of monitoring compliance with preferences.
 
-This lack of trust led some participants to question whether communicating preferences is sufficient in all cases without an accompanying way to mitigate or track cases of those preferences being followed. Some participants also indicated that a lack of trust was the primary cause of the increasingly prevalent blocking of AI crawler IP addresses, among other measures.
+This lack of trust led some participants to question whether communicating preferences is sufficient in all cases without an accompanying way to enforce them, or even to audit adherence to them. Some participants also indicated that a lack of trust was the primary cause of the increasingly prevalent blocking of AI crawler IP addresses, among other measures.
 
 ## Attachment
 
@@ -190,7 +208,7 @@ Although no conclusions regarding exact vocabulary were reached, it was generall
 
 # Conclusions
 
-Participants seemed to agree that on its current path, the ecosystem is not sustainable. As one remarked, "robots.txt is broken and we broke it."
+Participants generally agreed that on its current path, the ecosystem is not sustainable. As one remarked, "robots.txt is broken and we broke it."
 
 Legal uncertainty, along with fundamental limitations of opt-out regimes pointed out above, limit the effectiveness of any technical solution, which will be operating in a system unlike either robots.txt (where there is a symbiotic relationship between content owners and the crawlers) or copyright (where the default is effectively opt-in, not opt-out).
 
@@ -286,7 +304,7 @@ Attendees of the workshop are listed with their primary affiliation. Attendees f
 * Fred von Lohmann, OpenAI
 * Shayne Longpre, Data Provenance Initiative
 * Don Marti, Raptive
-* Sarah McKenna, Alliance for Responsible Data Collection; CEO, Sequentum
+* Sarah McKenna, Alliance for Responsible Data Collection; Sequentum
 * Eric Null, Center for Democracy and Technology
 * Chris Needham, BBC
 * Mark Nottingham, Cloudflare (PC)

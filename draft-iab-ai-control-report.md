@@ -115,7 +115,7 @@ This document is a report on the proceedings of the workshop. The views and posi
 
 Furthermore, the content of the report comes from presentations given by workshop participants and notes taken during the discussions, without interpretation or validation. Thus, the content of this report follows the flow and dialogue of the workshop but does not attempt to capture a consensus.
 
-# Overview of the AI Crawling Landscape
+# Workshop Scope and Discussion
 
 The workshop began by surveying the state of AI control.
 

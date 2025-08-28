@@ -131,7 +131,7 @@ Underlying those immediate issues, however, are significant constraints that cou
 
 ## Crawl Time vs. Inference Time
 
-Perhaps most significant is the "crawl time vs. inference time" problem. Statements of preference are apparent at crawl time, bound to content either by location (e.g., robots.txt) or embedded inside the content itself as metadata. However, the target of those directives is often disassociated from the crawler, either because the crawl data is not only used for training AI models, or because the preferences are applicable at inference time.
+Perhaps most significant is the "crawl time vs. inference time" problem. Statements of preference are apparent at crawl time, bound to content either by location (e.g., robots.txt) or embedded inside the content itself as metadata. However, the target of those directives is often disassociated from the crawler, either because the crawl data is not only used for training AI models, or because the preferences could be applicable at inference time.
 
 ### Multiple Uses for Crawl Data
 

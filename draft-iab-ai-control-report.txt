@@ -192,7 +192,7 @@ Table of Contents
    the content itself as metadata.  However, the target of those
    directives is often disassociated from the crawler, either because
    the crawl data is not only used for training AI models, or because
-   the preferences are applicable at inference time.
+   the preferences could be applicable at inference time.
 
 2.1.1.  Multiple Uses for Crawl Data
 

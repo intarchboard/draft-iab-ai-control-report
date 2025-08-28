@@ -63,7 +63,7 @@ Table of Contents
    1.  Introduction
      1.1.  Chatham House Rule
      1.2.  Views Expressed in this Report
-   2.  Overview of the AI Crawling Landscape
+   2.  Workshop Scope and Discussion
      2.1.  Crawl Time vs. Inference Time
        2.1.1.  Multiple Uses for Crawl Data
        2.1.2.  Application of Preferences
@@ -143,7 +143,7 @@ Table of Contents
    report follows the flow and dialogue of the workshop but does not
    attempt to capture a consensus.
 
-2.  Overview of the AI Crawling Landscape
+2.  Workshop Scope and Discussion
 
    The workshop began by surveying the state of AI control.
 

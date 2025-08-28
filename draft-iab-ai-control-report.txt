@@ -5,7 +5,7 @@
 Network Working Group                                      M. Nottingham
 Internet-Draft                                                          
 Intended status: Informational                               S. Krishnan
-Expires: 28 February 2026                                 27 August 2025
+Expires: 1 March 2026                                     28 August 2025
 
 
                      IAB AI-CONTROL Workshop Report
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 February 2026.
+   This Internet-Draft will expire on 1 March 2026.
 
 Copyright Notice
 
@@ -157,11 +157,12 @@ Table of Contents
    There was disagreement about the implications of AI opt-out overall.
    Research presented at the workshop [DECLINE] indicates that the use
    of such controls is becoming more prevalent, reducing the
-   availability of data for AI training.  Some of the participants
-   expressed concern about the implications of this -- although at least
-   one AI vendor seemed less concerned by this, indicating that "there
-   are plenty of tokens available" for training, even if many opt out.
-   Others expressed a need to opt out of AI training because of how they
+   availability of data to AI (for purposes including training and
+   inference-time usage).  Some of the participants expressed concern
+   about the implications of this -- although at least one AI vendor
+   seemed less concerned by this, indicating that "there are plenty of
+   tokens available" for training, even if many opt out.  Others
+   expressed a need to opt out of AI training because of how they
    perceive its effects on their control over content, seeing AI as
    usurping their relationships with customers and a potential threat to
    whole industries.
